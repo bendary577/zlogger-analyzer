@@ -1,0 +1,474 @@
+20240806 12:17:28.754 00A1 =API= [ZQL.PhysicalConnectionPool] PhysicalConnectionPool.fillPool: TargetMin = 10, TargetMax = 10
+20240806 12:17:28.754 00A1 =FUN= [FunctionCheck] <App. context>: 1 -> zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool : pool size: 0
+20240806 12:17:28.755 00A1 =DBG= [FunctionCheck] <App. context>: 2 -> zcare.zdek.zql.PhysicalConnectionPool.createNewConnection
+20240806 12:17:28.755 00A1 =FUN= [FunctionCheck] <App. context>: 3 -> zcare.zdek.zql.PhysicalConnection.open : PDB0220 - jdbc:sqlserver://almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net;useUnicode=true;characterEncoding=UTF-8;
+20240806 12:17:32.968 0093 =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnection.open took too much time: 15004 ms
+20240806 12:17:32.970 0093 =FUN= [FunctionCheck] <App. context>: 3 <- zcare.zdek.zql.PhysicalConnection.open
+20240806 12:17:32.970 0093 =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnectionPool.createNewConnection took too much time: 15011 ms
+20240806 12:17:32.970 0093 =DBG= [FunctionCheck] <App. context>: 2 <- zcare.zdek.zql.PhysicalConnectionPool.createNewConnection
+20240806 12:17:32.970 0093 =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool took too much time: 15011 ms
+20240806 12:17:32.970 0093 =FUN= [FunctionCheck] <App. context>: 1 <- zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool
+20240806 12:17:32.971 0093 =WRN= [ZQL.PhysicalConnectionPool] <App. context>: Exception occurred: An unmanaged error <class com.microsoft.sqlserver.jdbc.SQLServerException> occurred.
+We recommend that you quit the application and restart.
+
+If this problem persists, please contact customer support with below reference. 
+
+
+The TCP/IP connection to the host almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net, port 1433 has failed. Error: "connect timed out. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+com.microsoft.sqlserver.jdbc.SQLServerException: The TCP/IP connection to the host almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net, port 1433 has failed. Error: "connect timed out. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:234)
+	at com.microsoft.sqlserver.jdbc.SQLServerException.ConvertConnectExceptionToSQLServerException(SQLServerException.java:285)
+	at com.microsoft.sqlserver.jdbc.SocketFinder.findSocket(IOBuffer.java:2466)
+	at com.microsoft.sqlserver.jdbc.TDSChannel.open(IOBuffer.java:672)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:2747)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:2418)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:2265)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:1291)
+	at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:881)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at zcare.zdek.zql.PhysicalConnection.open(PhysicalConnection.java:1313)
+	at zcare.zdek.zql.PhysicalConnectionPool.connectToDb(PhysicalConnectionPool.java:1056)
+	at zcare.zdek.zql.PhysicalConnectionPool.createNewConnection(PhysicalConnectionPool.java:1042)
+	at zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool(PhysicalConnectionPool.java:1076)
+	at zcare.zdek.zql.PhysicalConnectionPool.fillPoolToMax(PhysicalConnectionPool.java:912)
+	at zcare.zdek.zql.PhysicalConnectionPool.access$12(PhysicalConnectionPool.java:895)
+	at zcare.zdek.zql.PhysicalConnectionPool$2.run(PhysicalConnectionPool.java:883)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at zcare.zdek.system.ZScheduler.executeFirstTaskInQueue(ZScheduler.java:198)
+	at zcare.zdek.system.ZScheduler.access$2(ZScheduler.java:189)
+	at zcare.zdek.system.ZScheduler$1$1.run(ZScheduler.java:134)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20240806 12:17:32.972 0093 =API= [ZQL.PhysicalConnectionPool] PhysicalConnectionPool.fillPool: TargetMin = 10, TargetMax = 10
+20240806 12:17:32.973 0093 =FUN= [FunctionCheck] <App. context>: 1 -> zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool : pool size: 0
+20240806 12:17:32.973 0093 =DBG= [FunctionCheck] <App. context>: 2 -> zcare.zdek.zql.PhysicalConnectionPool.createNewConnection
+20240806 12:17:32.973 0093 =FUN= [FunctionCheck] <App. context>: 3 -> zcare.zdek.zql.PhysicalConnection.open : PDB0221 - jdbc:sqlserver://almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net;useUnicode=true;characterEncoding=UTF-8;
+20240806 12:17:34.081 008A =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnection.open took too much time: 15015 ms
+20240806 12:17:34.081 008A =FUN= [FunctionCheck] <App. context>: 3 <- zcare.zdek.zql.PhysicalConnection.open
+20240806 12:17:34.082 008A =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnectionPool.createNewConnection took too much time: 15016 ms
+20240806 12:17:34.082 008A =DBG= [FunctionCheck] <App. context>: 2 <- zcare.zdek.zql.PhysicalConnectionPool.createNewConnection
+20240806 12:17:34.082 008A =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool took too much time: 15017 ms
+20240806 12:17:34.082 008A =FUN= [FunctionCheck] <App. context>: 1 <- zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool
+20240806 12:17:34.082 008A =WRN= [ZQL.PhysicalConnectionPool] <App. context>: Exception occurred: An unmanaged error <class com.microsoft.sqlserver.jdbc.SQLServerException> occurred.
+We recommend that you quit the application and restart.
+
+If this problem persists, please contact customer support with below reference. 
+
+
+The TCP/IP connection to the host almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net, port 1433 has failed. Error: "connect timed out. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+com.microsoft.sqlserver.jdbc.SQLServerException: The TCP/IP connection to the host almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net, port 1433 has failed. Error: "connect timed out. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:234)
+	at com.microsoft.sqlserver.jdbc.SQLServerException.ConvertConnectExceptionToSQLServerException(SQLServerException.java:285)
+	at com.microsoft.sqlserver.jdbc.SocketFinder.findSocket(IOBuffer.java:2466)
+	at com.microsoft.sqlserver.jdbc.TDSChannel.open(IOBuffer.java:672)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:2747)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:2418)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:2265)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:1291)
+	at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:881)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at zcare.zdek.zql.PhysicalConnection.open(PhysicalConnection.java:1313)
+	at zcare.zdek.zql.PhysicalConnectionPool.connectToDb(PhysicalConnectionPool.java:1056)
+	at zcare.zdek.zql.PhysicalConnectionPool.createNewConnection(PhysicalConnectionPool.java:1042)
+	at zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool(PhysicalConnectionPool.java:1076)
+	at zcare.zdek.zql.PhysicalConnectionPool.fillPoolToMax(PhysicalConnectionPool.java:912)
+	at zcare.zdek.zql.PhysicalConnectionPool.access$12(PhysicalConnectionPool.java:895)
+	at zcare.zdek.zql.PhysicalConnectionPool$2.run(PhysicalConnectionPool.java:883)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at zcare.zdek.system.ZScheduler.executeFirstTaskInQueue(ZScheduler.java:198)
+	at zcare.zdek.system.ZScheduler.access$2(ZScheduler.java:189)
+	at zcare.zdek.system.ZScheduler$1$1.run(ZScheduler.java:134)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20240806 12:17:34.083 008A =API= [ZQL.PhysicalConnectionPool] PhysicalConnectionPool.fillPool: TargetMin = 10, TargetMax = 10
+20240806 12:17:34.083 008A =FUN= [FunctionCheck] <App. context>: 1 -> zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool : pool size: 0
+20240806 12:17:34.083 008A =DBG= [FunctionCheck] <App. context>: 2 -> zcare.zdek.zql.PhysicalConnectionPool.createNewConnection
+20240806 12:17:34.084 008A =FUN= [FunctionCheck] <App. context>: 3 -> zcare.zdek.zql.PhysicalConnection.open : PDB0222 - jdbc:sqlserver://almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net;useUnicode=true;characterEncoding=UTF-8;
+20240806 12:17:38.966 009F =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnection.open took too much time: 15005 ms
+20240806 12:17:38.966 009F =FUN= [FunctionCheck] <App. context>: 3 <- zcare.zdek.zql.PhysicalConnection.open
+20240806 12:17:38.967 009F =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnectionPool.createNewConnection took too much time: 15006 ms
+20240806 12:17:38.967 009F =DBG= [FunctionCheck] <App. context>: 2 <- zcare.zdek.zql.PhysicalConnectionPool.createNewConnection
+20240806 12:17:38.967 009F =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool took too much time: 15006 ms
+20240806 12:17:38.967 009F =FUN= [FunctionCheck] <App. context>: 1 <- zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool
+20240806 12:17:38.967 009F =WRN= [ZQL.PhysicalConnectionPool] <App. context>: Exception occurred: An unmanaged error <class com.microsoft.sqlserver.jdbc.SQLServerException> occurred.
+We recommend that you quit the application and restart.
+
+If this problem persists, please contact customer support with below reference. 
+
+
+The TCP/IP connection to the host almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net, port 1433 has failed. Error: "connect timed out. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+com.microsoft.sqlserver.jdbc.SQLServerException: The TCP/IP connection to the host almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net, port 1433 has failed. Error: "connect timed out. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:234)
+	at com.microsoft.sqlserver.jdbc.SQLServerException.ConvertConnectExceptionToSQLServerException(SQLServerException.java:285)
+	at com.microsoft.sqlserver.jdbc.SocketFinder.findSocket(IOBuffer.java:2466)
+	at com.microsoft.sqlserver.jdbc.TDSChannel.open(IOBuffer.java:672)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:2747)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:2418)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:2265)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:1291)
+	at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:881)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at zcare.zdek.zql.PhysicalConnection.open(PhysicalConnection.java:1313)
+	at zcare.zdek.zql.PhysicalConnectionPool.connectToDb(PhysicalConnectionPool.java:1056)
+	at zcare.zdek.zql.PhysicalConnectionPool.createNewConnection(PhysicalConnectionPool.java:1042)
+	at zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool(PhysicalConnectionPool.java:1076)
+	at zcare.zdek.zql.PhysicalConnectionPool.fillPoolToMax(PhysicalConnectionPool.java:912)
+	at zcare.zdek.zql.PhysicalConnectionPool.access$12(PhysicalConnectionPool.java:895)
+	at zcare.zdek.zql.PhysicalConnectionPool$2.run(PhysicalConnectionPool.java:883)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at zcare.zdek.system.ZScheduler.executeFirstTaskInQueue(ZScheduler.java:198)
+	at zcare.zdek.system.ZScheduler.access$2(ZScheduler.java:189)
+	at zcare.zdek.system.ZScheduler$1$1.run(ZScheduler.java:134)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20240806 12:17:38.969 009F =API= [ZQL.PhysicalConnectionPool] PhysicalConnectionPool.fillPool: TargetMin = 10, TargetMax = 10
+20240806 12:17:38.969 009F =FUN= [FunctionCheck] <App. context>: 1 -> zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool : pool size: 0
+20240806 12:17:38.969 009F =DBG= [FunctionCheck] <App. context>: 2 -> zcare.zdek.zql.PhysicalConnectionPool.createNewConnection
+20240806 12:17:38.969 009F =FUN= [FunctionCheck] <App. context>: 3 -> zcare.zdek.zql.PhysicalConnection.open : PDB0223 - jdbc:sqlserver://almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net;useUnicode=true;characterEncoding=UTF-8;
+20240806 12:17:43.696 009A =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnection.open took too much time: 15007 ms
+20240806 12:17:43.697 009A =FUN= [FunctionCheck] <App. context>: 3 <- zcare.zdek.zql.PhysicalConnection.open
+20240806 12:17:43.697 009A =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnectionPool.createNewConnection took too much time: 15008 ms
+20240806 12:17:43.697 009A =DBG= [FunctionCheck] <App. context>: 2 <- zcare.zdek.zql.PhysicalConnectionPool.createNewConnection
+20240806 12:17:43.697 009A =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool took too much time: 15008 ms
+20240806 12:17:43.698 009A =FUN= [FunctionCheck] <App. context>: 1 <- zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool
+20240806 12:17:43.698 009A =WRN= [ZQL.PhysicalConnectionPool] <App. context>: Exception occurred: An unmanaged error <class com.microsoft.sqlserver.jdbc.SQLServerException> occurred.
+We recommend that you quit the application and restart.
+
+If this problem persists, please contact customer support with below reference. 
+
+
+The TCP/IP connection to the host almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net, port 1433 has failed. Error: "connect timed out. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+com.microsoft.sqlserver.jdbc.SQLServerException: The TCP/IP connection to the host almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net, port 1433 has failed. Error: "connect timed out. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:234)
+	at com.microsoft.sqlserver.jdbc.SQLServerException.ConvertConnectExceptionToSQLServerException(SQLServerException.java:285)
+	at com.microsoft.sqlserver.jdbc.SocketFinder.findSocket(IOBuffer.java:2466)
+	at com.microsoft.sqlserver.jdbc.TDSChannel.open(IOBuffer.java:672)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:2747)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:2418)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:2265)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:1291)
+	at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:881)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at zcare.zdek.zql.PhysicalConnection.open(PhysicalConnection.java:1313)
+	at zcare.zdek.zql.PhysicalConnectionPool.connectToDb(PhysicalConnectionPool.java:1056)
+	at zcare.zdek.zql.PhysicalConnectionPool.createNewConnection(PhysicalConnectionPool.java:1042)
+	at zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool(PhysicalConnectionPool.java:1076)
+	at zcare.zdek.zql.PhysicalConnectionPool.fillPoolToMax(PhysicalConnectionPool.java:912)
+	at zcare.zdek.zql.PhysicalConnectionPool.access$12(PhysicalConnectionPool.java:895)
+	at zcare.zdek.zql.PhysicalConnectionPool$2.run(PhysicalConnectionPool.java:883)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at zcare.zdek.system.ZScheduler.executeFirstTaskInQueue(ZScheduler.java:198)
+	at zcare.zdek.system.ZScheduler.access$2(ZScheduler.java:189)
+	at zcare.zdek.system.ZScheduler$1$1.run(ZScheduler.java:134)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20240806 12:17:43.699 009A =API= [ZQL.PhysicalConnectionPool] PhysicalConnectionPool.fillPool: TargetMin = 10, TargetMax = 10
+20240806 12:17:43.699 009A =FUN= [FunctionCheck] <App. context>: 1 -> zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool : pool size: 0
+20240806 12:17:43.699 009A =DBG= [FunctionCheck] <App. context>: 2 -> zcare.zdek.zql.PhysicalConnectionPool.createNewConnection
+20240806 12:17:43.700 009A =FUN= [FunctionCheck] <App. context>: 3 -> zcare.zdek.zql.PhysicalConnection.open : PDB0224 - jdbc:sqlserver://almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net;useUnicode=true;characterEncoding=UTF-8;
+20240806 12:17:43.758 00A1 =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnection.open took too much time: 15003 ms
+20240806 12:17:43.758 00A1 =FUN= [FunctionCheck] <App. context>: 3 <- zcare.zdek.zql.PhysicalConnection.open
+20240806 12:17:43.758 00A1 =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnectionPool.createNewConnection took too much time: 15003 ms
+20240806 12:17:43.759 00A1 =DBG= [FunctionCheck] <App. context>: 2 <- zcare.zdek.zql.PhysicalConnectionPool.createNewConnection
+20240806 12:17:43.759 00A1 =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool took too much time: 15005 ms
+20240806 12:17:43.759 00A1 =FUN= [FunctionCheck] <App. context>: 1 <- zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool
+20240806 12:17:43.759 00A1 =WRN= [ZQL.PhysicalConnectionPool] <App. context>: Exception occurred: An unmanaged error <class com.microsoft.sqlserver.jdbc.SQLServerException> occurred.
+We recommend that you quit the application and restart.
+
+If this problem persists, please contact customer support with below reference. 
+
+
+The TCP/IP connection to the host almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net, port 1433 has failed. Error: "connect timed out. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+com.microsoft.sqlserver.jdbc.SQLServerException: The TCP/IP connection to the host almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net, port 1433 has failed. Error: "connect timed out. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:234)
+	at com.microsoft.sqlserver.jdbc.SQLServerException.ConvertConnectExceptionToSQLServerException(SQLServerException.java:285)
+	at com.microsoft.sqlserver.jdbc.SocketFinder.findSocket(IOBuffer.java:2466)
+	at com.microsoft.sqlserver.jdbc.TDSChannel.open(IOBuffer.java:672)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:2747)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:2418)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:2265)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:1291)
+	at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:881)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at zcare.zdek.zql.PhysicalConnection.open(PhysicalConnection.java:1313)
+	at zcare.zdek.zql.PhysicalConnectionPool.connectToDb(PhysicalConnectionPool.java:1056)
+	at zcare.zdek.zql.PhysicalConnectionPool.createNewConnection(PhysicalConnectionPool.java:1042)
+	at zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool(PhysicalConnectionPool.java:1076)
+	at zcare.zdek.zql.PhysicalConnectionPool.fillPoolToMax(PhysicalConnectionPool.java:912)
+	at zcare.zdek.zql.PhysicalConnectionPool.access$12(PhysicalConnectionPool.java:895)
+	at zcare.zdek.zql.PhysicalConnectionPool$2.run(PhysicalConnectionPool.java:883)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at zcare.zdek.system.ZScheduler.executeFirstTaskInQueue(ZScheduler.java:198)
+	at zcare.zdek.system.ZScheduler.access$2(ZScheduler.java:189)
+	at zcare.zdek.system.ZScheduler$1$1.run(ZScheduler.java:134)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20240806 12:17:43.760 00A1 =API= [ZQL.PhysicalConnectionPool] PhysicalConnectionPool.fillPool: TargetMin = 10, TargetMax = 10
+20240806 12:17:43.761 00A1 =FUN= [FunctionCheck] <App. context>: 1 -> zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool : pool size: 0
+20240806 12:17:43.761 00A1 =DBG= [FunctionCheck] <App. context>: 2 -> zcare.zdek.zql.PhysicalConnectionPool.createNewConnection
+20240806 12:17:43.762 00A1 =FUN= [FunctionCheck] <App. context>: 3 -> zcare.zdek.zql.PhysicalConnection.open : PDB0225 - jdbc:sqlserver://almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net;useUnicode=true;characterEncoding=UTF-8;
+20240806 12:17:47.977 0093 =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnection.open took too much time: 15004 ms
+20240806 12:17:47.978 0093 =FUN= [FunctionCheck] <App. context>: 3 <- zcare.zdek.zql.PhysicalConnection.open
+20240806 12:17:47.978 0093 =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnectionPool.createNewConnection took too much time: 15005 ms
+20240806 12:17:47.978 0093 =DBG= [FunctionCheck] <App. context>: 2 <- zcare.zdek.zql.PhysicalConnectionPool.createNewConnection
+20240806 12:17:47.978 0093 =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool took too much time: 15006 ms
+20240806 12:17:47.979 0093 =FUN= [FunctionCheck] <App. context>: 1 <- zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool
+20240806 12:17:47.979 0093 =WRN= [ZQL.PhysicalConnectionPool] <App. context>: Exception occurred: An unmanaged error <class com.microsoft.sqlserver.jdbc.SQLServerException> occurred.
+We recommend that you quit the application and restart.
+
+If this problem persists, please contact customer support with below reference. 
+
+
+The TCP/IP connection to the host almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net, port 1433 has failed. Error: "connect timed out. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+com.microsoft.sqlserver.jdbc.SQLServerException: The TCP/IP connection to the host almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net, port 1433 has failed. Error: "connect timed out. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:234)
+	at com.microsoft.sqlserver.jdbc.SQLServerException.ConvertConnectExceptionToSQLServerException(SQLServerException.java:285)
+	at com.microsoft.sqlserver.jdbc.SocketFinder.findSocket(IOBuffer.java:2466)
+	at com.microsoft.sqlserver.jdbc.TDSChannel.open(IOBuffer.java:672)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:2747)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:2418)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:2265)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:1291)
+	at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:881)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at zcare.zdek.zql.PhysicalConnection.open(PhysicalConnection.java:1313)
+	at zcare.zdek.zql.PhysicalConnectionPool.connectToDb(PhysicalConnectionPool.java:1056)
+	at zcare.zdek.zql.PhysicalConnectionPool.createNewConnection(PhysicalConnectionPool.java:1042)
+	at zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool(PhysicalConnectionPool.java:1076)
+	at zcare.zdek.zql.PhysicalConnectionPool.fillPoolToMax(PhysicalConnectionPool.java:912)
+	at zcare.zdek.zql.PhysicalConnectionPool.access$12(PhysicalConnectionPool.java:895)
+	at zcare.zdek.zql.PhysicalConnectionPool$2.run(PhysicalConnectionPool.java:883)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at zcare.zdek.system.ZScheduler.executeFirstTaskInQueue(ZScheduler.java:198)
+	at zcare.zdek.system.ZScheduler.access$2(ZScheduler.java:189)
+	at zcare.zdek.system.ZScheduler$1$1.run(ZScheduler.java:134)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20240806 12:17:47.979 0093 =API= [ZQL.PhysicalConnectionPool] PhysicalConnectionPool.fillPool: TargetMin = 10, TargetMax = 10
+20240806 12:17:47.979 0093 =FUN= [FunctionCheck] <App. context>: 1 -> zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool : pool size: 0
+20240806 12:17:47.980 0093 =DBG= [FunctionCheck] <App. context>: 2 -> zcare.zdek.zql.PhysicalConnectionPool.createNewConnection
+20240806 12:17:47.980 0093 =FUN= [FunctionCheck] <App. context>: 3 -> zcare.zdek.zql.PhysicalConnection.open : PDB0226 - jdbc:sqlserver://almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net;useUnicode=true;characterEncoding=UTF-8;
+20240806 12:17:49.093 008A =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnection.open took too much time: 15010 ms
+20240806 12:17:49.094 008A =FUN= [FunctionCheck] <App. context>: 3 <- zcare.zdek.zql.PhysicalConnection.open
+20240806 12:17:49.094 008A =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnectionPool.createNewConnection took too much time: 15011 ms
+20240806 12:17:49.094 008A =DBG= [FunctionCheck] <App. context>: 2 <- zcare.zdek.zql.PhysicalConnectionPool.createNewConnection
+20240806 12:17:49.094 008A =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool took too much time: 15011 ms
+20240806 12:17:49.095 008A =FUN= [FunctionCheck] <App. context>: 1 <- zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool
+20240806 12:17:49.096 008A =WRN= [ZQL.PhysicalConnectionPool] <App. context>: Exception occurred: An unmanaged error <class com.microsoft.sqlserver.jdbc.SQLServerException> occurred.
+We recommend that you quit the application and restart.
+
+If this problem persists, please contact customer support with below reference. 
+
+
+The TCP/IP connection to the host almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net, port 1433 has failed. Error: "connect timed out. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+com.microsoft.sqlserver.jdbc.SQLServerException: The TCP/IP connection to the host almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net, port 1433 has failed. Error: "connect timed out. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:234)
+	at com.microsoft.sqlserver.jdbc.SQLServerException.ConvertConnectExceptionToSQLServerException(SQLServerException.java:285)
+	at com.microsoft.sqlserver.jdbc.SocketFinder.findSocket(IOBuffer.java:2466)
+	at com.microsoft.sqlserver.jdbc.TDSChannel.open(IOBuffer.java:672)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:2747)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:2418)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:2265)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:1291)
+	at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:881)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at zcare.zdek.zql.PhysicalConnection.open(PhysicalConnection.java:1313)
+	at zcare.zdek.zql.PhysicalConnectionPool.connectToDb(PhysicalConnectionPool.java:1056)
+	at zcare.zdek.zql.PhysicalConnectionPool.createNewConnection(PhysicalConnectionPool.java:1042)
+	at zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool(PhysicalConnectionPool.java:1076)
+	at zcare.zdek.zql.PhysicalConnectionPool.fillPoolToMax(PhysicalConnectionPool.java:912)
+	at zcare.zdek.zql.PhysicalConnectionPool.access$12(PhysicalConnectionPool.java:895)
+	at zcare.zdek.zql.PhysicalConnectionPool$2.run(PhysicalConnectionPool.java:883)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at zcare.zdek.system.ZScheduler.executeFirstTaskInQueue(ZScheduler.java:198)
+	at zcare.zdek.system.ZScheduler.access$2(ZScheduler.java:189)
+	at zcare.zdek.system.ZScheduler$1$1.run(ZScheduler.java:134)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20240806 12:17:49.097 008A =API= [ZQL.PhysicalConnectionPool] PhysicalConnectionPool.fillPool: TargetMin = 10, TargetMax = 10
+20240806 12:17:49.097 008A =FUN= [FunctionCheck] <App. context>: 1 -> zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool : pool size: 0
+20240806 12:17:49.098 008A =DBG= [FunctionCheck] <App. context>: 2 -> zcare.zdek.zql.PhysicalConnectionPool.createNewConnection
+20240806 12:17:49.098 008A =FUN= [FunctionCheck] <App. context>: 3 -> zcare.zdek.zql.PhysicalConnection.open : PDB0227 - jdbc:sqlserver://almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net;useUnicode=true;characterEncoding=UTF-8;
+20240806 12:17:53.978 009F =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnection.open took too much time: 15009 ms
+20240806 12:17:53.978 009F =FUN= [FunctionCheck] <App. context>: 3 <- zcare.zdek.zql.PhysicalConnection.open
+20240806 12:17:53.979 009F =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnectionPool.createNewConnection took too much time: 15009 ms
+20240806 12:17:53.979 009F =DBG= [FunctionCheck] <App. context>: 2 <- zcare.zdek.zql.PhysicalConnectionPool.createNewConnection
+20240806 12:17:53.979 009F =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool took too much time: 15010 ms
+20240806 12:17:53.979 009F =FUN= [FunctionCheck] <App. context>: 1 <- zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool
+20240806 12:17:53.980 009F =WRN= [ZQL.PhysicalConnectionPool] <App. context>: Exception occurred: An unmanaged error <class com.microsoft.sqlserver.jdbc.SQLServerException> occurred.
+We recommend that you quit the application and restart.
+
+If this problem persists, please contact customer support with below reference. 
+
+
+The TCP/IP connection to the host almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net, port 1433 has failed. Error: "connect timed out. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+com.microsoft.sqlserver.jdbc.SQLServerException: The TCP/IP connection to the host almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net, port 1433 has failed. Error: "connect timed out. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:234)
+	at com.microsoft.sqlserver.jdbc.SQLServerException.ConvertConnectExceptionToSQLServerException(SQLServerException.java:285)
+	at com.microsoft.sqlserver.jdbc.SocketFinder.findSocket(IOBuffer.java:2466)
+	at com.microsoft.sqlserver.jdbc.TDSChannel.open(IOBuffer.java:672)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:2747)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:2418)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:2265)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:1291)
+	at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:881)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at zcare.zdek.zql.PhysicalConnection.open(PhysicalConnection.java:1313)
+	at zcare.zdek.zql.PhysicalConnectionPool.connectToDb(PhysicalConnectionPool.java:1056)
+	at zcare.zdek.zql.PhysicalConnectionPool.createNewConnection(PhysicalConnectionPool.java:1042)
+	at zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool(PhysicalConnectionPool.java:1076)
+	at zcare.zdek.zql.PhysicalConnectionPool.fillPoolToMax(PhysicalConnectionPool.java:912)
+	at zcare.zdek.zql.PhysicalConnectionPool.access$12(PhysicalConnectionPool.java:895)
+	at zcare.zdek.zql.PhysicalConnectionPool$2.run(PhysicalConnectionPool.java:883)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at zcare.zdek.system.ZScheduler.executeFirstTaskInQueue(ZScheduler.java:198)
+	at zcare.zdek.system.ZScheduler.access$2(ZScheduler.java:189)
+	at zcare.zdek.system.ZScheduler$1$1.run(ZScheduler.java:134)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20240806 12:17:53.983 009F =API= [ZQL.PhysicalConnectionPool] PhysicalConnectionPool.fillPool: TargetMin = 10, TargetMax = 10
+20240806 12:17:53.983 009F =FUN= [FunctionCheck] <App. context>: 1 -> zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool : pool size: 0
+20240806 12:17:53.984 009F =DBG= [FunctionCheck] <App. context>: 2 -> zcare.zdek.zql.PhysicalConnectionPool.createNewConnection
+20240806 12:17:53.985 009F =FUN= [FunctionCheck] <App. context>: 3 -> zcare.zdek.zql.PhysicalConnection.open : PDB0228 - jdbc:sqlserver://almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net;useUnicode=true;characterEncoding=UTF-8;
+20240806 12:17:58.704 009A =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnection.open took too much time: 15003 ms
+20240806 12:17:58.704 009A =FUN= [FunctionCheck] <App. context>: 3 <- zcare.zdek.zql.PhysicalConnection.open
+20240806 12:17:58.704 009A =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnectionPool.createNewConnection took too much time: 15005 ms
+20240806 12:17:58.704 009A =DBG= [FunctionCheck] <App. context>: 2 <- zcare.zdek.zql.PhysicalConnectionPool.createNewConnection
+20240806 12:17:58.705 009A =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool took too much time: 15005 ms
+20240806 12:17:58.705 009A =FUN= [FunctionCheck] <App. context>: 1 <- zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool
+20240806 12:17:58.705 009A =WRN= [ZQL.PhysicalConnectionPool] <App. context>: Exception occurred: An unmanaged error <class com.microsoft.sqlserver.jdbc.SQLServerException> occurred.
+We recommend that you quit the application and restart.
+
+If this problem persists, please contact customer support with below reference. 
+
+
+The TCP/IP connection to the host almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net, port 1433 has failed. Error: "connect timed out. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+com.microsoft.sqlserver.jdbc.SQLServerException: The TCP/IP connection to the host almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net, port 1433 has failed. Error: "connect timed out. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:234)
+	at com.microsoft.sqlserver.jdbc.SQLServerException.ConvertConnectExceptionToSQLServerException(SQLServerException.java:285)
+	at com.microsoft.sqlserver.jdbc.SocketFinder.findSocket(IOBuffer.java:2466)
+	at com.microsoft.sqlserver.jdbc.TDSChannel.open(IOBuffer.java:672)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:2747)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:2418)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:2265)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:1291)
+	at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:881)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at zcare.zdek.zql.PhysicalConnection.open(PhysicalConnection.java:1313)
+	at zcare.zdek.zql.PhysicalConnectionPool.connectToDb(PhysicalConnectionPool.java:1056)
+	at zcare.zdek.zql.PhysicalConnectionPool.createNewConnection(PhysicalConnectionPool.java:1042)
+	at zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool(PhysicalConnectionPool.java:1076)
+	at zcare.zdek.zql.PhysicalConnectionPool.fillPoolToMax(PhysicalConnectionPool.java:912)
+	at zcare.zdek.zql.PhysicalConnectionPool.access$12(PhysicalConnectionPool.java:895)
+	at zcare.zdek.zql.PhysicalConnectionPool$2.run(PhysicalConnectionPool.java:883)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at zcare.zdek.system.ZScheduler.executeFirstTaskInQueue(ZScheduler.java:198)
+	at zcare.zdek.system.ZScheduler.access$2(ZScheduler.java:189)
+	at zcare.zdek.system.ZScheduler$1$1.run(ZScheduler.java:134)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20240806 12:17:58.707 009A =API= [ZQL.PhysicalConnectionPool] PhysicalConnectionPool.fillPool: TargetMin = 10, TargetMax = 10
+20240806 12:17:58.707 009A =FUN= [FunctionCheck] <App. context>: 1 -> zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool : pool size: 0
+20240806 12:17:58.707 009A =DBG= [FunctionCheck] <App. context>: 2 -> zcare.zdek.zql.PhysicalConnectionPool.createNewConnection
+20240806 12:17:58.707 009A =FUN= [FunctionCheck] <App. context>: 3 -> zcare.zdek.zql.PhysicalConnection.open : PDB0229 - jdbc:sqlserver://almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net;useUnicode=true;characterEncoding=UTF-8;
+20240806 12:17:58.765 00A1 =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnection.open took too much time: 15004 ms
+20240806 12:17:58.766 00A1 =FUN= [FunctionCheck] <App. context>: 3 <- zcare.zdek.zql.PhysicalConnection.open
+20240806 12:17:58.766 00A1 =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnectionPool.createNewConnection took too much time: 15005 ms
+20240806 12:17:58.766 00A1 =DBG= [FunctionCheck] <App. context>: 2 <- zcare.zdek.zql.PhysicalConnectionPool.createNewConnection
+20240806 12:17:58.766 00A1 =WRN= [FunctionCheck] <App. context>: zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool took too much time: 15005 ms
+20240806 12:17:58.766 00A1 =FUN= [FunctionCheck] <App. context>: 1 <- zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool
+20240806 12:17:58.766 00A1 =WRN= [ZQL.PhysicalConnectionPool] <App. context>: Exception occurred: An unmanaged error <class com.microsoft.sqlserver.jdbc.SQLServerException> occurred.
+We recommend that you quit the application and restart.
+
+If this problem persists, please contact customer support with below reference. 
+
+
+The TCP/IP connection to the host almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net, port 1433 has failed. Error: "connect timed out. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+com.microsoft.sqlserver.jdbc.SQLServerException: The TCP/IP connection to the host almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net, port 1433 has failed. Error: "connect timed out. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:234)
+	at com.microsoft.sqlserver.jdbc.SQLServerException.ConvertConnectExceptionToSQLServerException(SQLServerException.java:285)
+	at com.microsoft.sqlserver.jdbc.SocketFinder.findSocket(IOBuffer.java:2466)
+	at com.microsoft.sqlserver.jdbc.TDSChannel.open(IOBuffer.java:672)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:2747)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:2418)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:2265)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:1291)
+	at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:881)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at zcare.zdek.zql.PhysicalConnection.open(PhysicalConnection.java:1313)
+	at zcare.zdek.zql.PhysicalConnectionPool.connectToDb(PhysicalConnectionPool.java:1056)
+	at zcare.zdek.zql.PhysicalConnectionPool.createNewConnection(PhysicalConnectionPool.java:1042)
+	at zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool(PhysicalConnectionPool.java:1076)
+	at zcare.zdek.zql.PhysicalConnectionPool.fillPoolToMax(PhysicalConnectionPool.java:912)
+	at zcare.zdek.zql.PhysicalConnectionPool.access$12(PhysicalConnectionPool.java:895)
+	at zcare.zdek.zql.PhysicalConnectionPool$2.run(PhysicalConnectionPool.java:883)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at zcare.zdek.system.ZScheduler.executeFirstTaskInQueue(ZScheduler.java:198)
+	at zcare.zdek.system.ZScheduler.access$2(ZScheduler.java:189)
+	at zcare.zdek.system.ZScheduler$1$1.run(ZScheduler.java:134)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20240806 12:17:58.767 00A1 =API= [ZQL.PhysicalConnectionPool] PhysicalConnectionPool.fillPool: TargetMin = 10, TargetMax = 10
+20240806 12:17:58.767 00A1 =FUN= [FunctionCheck] <App. context>: 1 -> zcare.zdek.zql.PhysicalConnectionPool.addNewConnectionToPool : pool size: 0
+20240806 12:17:58.767 00A1 =DBG= [FunctionCheck] <App. context>: 2 -> zcare.zdek.zql.PhysicalConnectionPool.createNewConnection
+20240806 12:17:58.767 00A1 =FUN= [FunctionCheck] <App. context>: 3 -> zcare.zdek.zql.PhysicalConnection.open : PDB0230 - jdbc:sqlserver://almanhal-uat-sql-managed-instance.80994a7a809c.database.windows.net;useUnicode=true;characterEncoding=UTF-8;
